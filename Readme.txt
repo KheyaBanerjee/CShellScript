@@ -36,3 +36,11 @@ The description for file "humanresvarrcl.csh"
 
 This file needs 2 other files: 'convert_classification2localization.pro' and 'empiricalLROC_tgtsp'
 The first IDL file converts a target specific input to a non target specific output and the second C execuatble performs an LROC test on the output file.
+
+
+
+
+The description for file "create_filecoordinate.csh"
+
+This file generates a text file which contains all the names of the reconstructed images. The name of the images have the locations of tumor 
+so the location file is called and the location is added to the filename.

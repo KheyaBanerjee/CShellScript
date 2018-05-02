@@ -1,0 +1,21 @@
+#! /bin/csh
+set itr = 4
+set sigma = 0.425
+
+#    This file creates imgfile which contains the name of all
+#    reconstructed imagefiles with location of tumor
+#    The location file is 'locations__3_1.posid'
+
+set i = 1
+while (${i} < 11)
+cd /hudson2/SourcePts/projected_tumors/with_3_tumors
+sed 's/ /_/g' locations__3_${i}.posid > loc__3_${i}.posid
+set temp3 = `awk 'NR {print($1);}' loc__3_${i}.posid`
+set filename3 = /hudson2/Rec/reconstruction_contrast_1/reconstructed_bodytumor_with_3_tumors_contrast_1/bodytumor_phantom_3_${i}_${temp3}_cont_1_0_127_3OS_${itr}_gs
+cd /hudson2/ModelObserver/Parfiles
+echo ${filename3} >>! imgfile_contrast_1
+cd /hudson2/SourcePts/projected_tumors/with_3_tumors
+rm loc__3_${i}.posid
+#endif
+@ i = $i + 1
+end
